@@ -13,16 +13,11 @@ git clone https://github.com/cytopia/devilbox ~/Websites
 cp ~/Websites/env-example ~/Websites/.env
 
 # Setup docker permissions and install docker snap
-#sudo groupadd docker
-#sudo gpasswd -a $USER docker
-#newgrp docker
+sudo groupadd docker
+sudo gpasswd -a $USER docker
+newgrp docker
 sudo snap install docker
 # Install Docker.io
 sudo apt install docker.io -y
-# Install Docker-Compose
-curl -L https://github.com/docker/compose/releases/download/1.25.1-rc1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
-chmod +x /usr/local/bin/docker-compose
-
-#cd ~/Websites
 
 
