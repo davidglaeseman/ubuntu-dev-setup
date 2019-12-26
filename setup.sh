@@ -1,7 +1,7 @@
 #!/bin/bash
 sudo apt update
 sudo apt upgrade -y
-sudo apt install curl git zsh vim -y
+sudo apt install curl git zsh vim docker.io -y
 
 # Install OH My ZSH
 #wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
@@ -17,6 +17,5 @@ cp ~/Websites/env-example ~/Websites/.env
 #sudo gpasswd -a $USER docker
 #newgrp docker
 sudo snap install docker
-sudo apt install docker.io
 
 
