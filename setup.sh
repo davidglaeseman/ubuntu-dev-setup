@@ -14,3 +14,4 @@ sudo snap install docker
 
 # Clone Devilbox
 git clone https://github.com/cytopia/devilbox ~/Websites
+cp ~/Websites/env-example ~/Websites/.env
