@@ -5,3 +5,9 @@ sudo apt install curl git zsh vim -y
 
 # Install OH My ZSH
 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
+
+
+sudo groupadd docker
+sudo gpasswd -a $USER docker
+newgrp docker
+#sudo snap install docker
