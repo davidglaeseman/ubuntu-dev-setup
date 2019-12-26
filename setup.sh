@@ -4,7 +4,9 @@ sudo apt upgrade -y
 sudo apt install curl git zsh vim -y
 
 # Install OH My ZSH
-wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
+#wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+chsh -s $(which zsh)
 
 # Setup docker permissions and install docker snap
 sudo groupadd docker
