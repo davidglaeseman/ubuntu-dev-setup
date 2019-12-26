@@ -17,5 +17,6 @@ cp ~/Websites/env-example ~/Websites/.env
 #sudo gpasswd -a $USER docker
 #newgrp docker
 sudo snap install docker
+cd ~/Websites
 
 
