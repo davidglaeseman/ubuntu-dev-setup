@@ -19,6 +19,6 @@ newgrp docker
 sudo snap install docker
 
 # Install Docker.io
-sudo apt install docker.io -y
+#sudo apt install docker.io -y
 
 
