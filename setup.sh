@@ -9,10 +9,10 @@ curl -L https://dllb2.pling.com/api/files/download/id/1577260560/s/20a4040011c73
 tar -xf ~/Downloads/mojave-dark.tar.xz -C ~/.themes/
 
 # Install Default Applications
-sudo snap install phpstorm --classic # web development
-sudo snap install bitwarden # password manager
-sudo snap install postman # api development
-sudo snap install atom --classic # web development -- free edition
+sudo snap install phpstorm --classic    #   web development
+sudo snap install bitwarden             #   password manager
+sudo snap install postman               #   api development
+sudo snap install atom --classic        #   web development -- free edition if you don't have a phpstorm license
 
 # Install Docker
 sudo apt install docker -y
@@ -20,7 +20,7 @@ sudo apt install docker-compose -y
 
 # Clone Devilbox & copy base env
 git clone https://github.com/cytopia/devilbox ~/Websites
-cp ~/Websites/env-example ~/Websites/.env
+cp ~/ubuntu-dev-setup/.env ~/Websites/.env
 
 # Install OH My ZSH
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
