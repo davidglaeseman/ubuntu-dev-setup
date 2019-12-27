@@ -1,7 +1,7 @@
 #!/bin/bash
 sudo apt update
 sudo apt upgrade -y
-sudo apt install curl git zsh vim gnome-shell gnome-tweak-tool unity-tweak-tool -y
+sudo apt install curl git zsh vim gnome-shell gnome-tweak-tool unity-tweak-tool snapd -y
 
 # Setup a theme folder for Tweaks
 mkdir ~/.themes
@@ -13,6 +13,7 @@ sudo snap install phpstorm --classic    #   web development
 sudo snap install bitwarden             #   password manager
 sudo snap install postman               #   api development
 sudo snap install atom --classic        #   web development -- free edition if you don't have a phpstorm license
+sudo snap install spotify               #   spotify music
 
 # Install Docker
 sudo apt install docker -y

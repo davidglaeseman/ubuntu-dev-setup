@@ -1,0 +1,4 @@
+#!/bin/bash
+clear
+truncate -s 0 /var/log/php/php*
+tail -f /var/log/php/php*
