@@ -11,9 +11,14 @@ sudo snap install atom --classic        #   web development -- free edition if y
 sudo snap install spotify               #   spotify music
 
 # Clone the Mojave Dark Theme
-mkdir ~/.themes
-git clone git@github.com:vinceliuice/Mojave-gtk-theme.git ~/Themes/Mojave-Dark
-cp ~/Themes/Mojave-Dark/src ~/.themes/Mojave-Dark
+# mkdir ~/.themes
+# git clone git@github.com:vinceliuice/Mojave-gtk-theme.git ~/Themes/Mojave-Dark
+# cp ~/Themes/Mojave-Dark/src ~/.themes/Mojave-Dark
+
+# Add Docker Group
+sudo addgroup —system docker
+sudo adduser $USER docker
+newgrp docker
 
 # Install Docker
 sudo apt install docker -y
@@ -26,3 +31,6 @@ cp ~/ubuntu-dev-setup/.env ~/Websites/.env
 # Install OH My ZSH
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 chsh -s $(which zsh)
+
+# Create a symlink between functions
+ln -s ~/ubuntu-dev-setup/functions.zsh ~/.oh-my-zsh/custom/functions.zsh
