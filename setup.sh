@@ -16,6 +16,7 @@ if [ "$INSTALL_APPS" = true ]; then
   # Download hyper.js Terminal and Install
   curl -L https://releases.hyper.is/download/deb --output ~/Downloads/Hyper.deb
   sudo apt install -y ~/Downloads/Hyper.deb
+  rm ~/Downloads/Hyper.deb
 fi
 
 GITHUB_USER=$2
@@ -36,6 +37,9 @@ cp ~/ubuntu-dev-setup/.env ~/Websites/.env
 
 # Install OH My ZSH
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+
+# Fix % bug in hyper.js after Oh My ZSH Install
+echo 'unsetopt PROMPT_SP' >> ~/.zshrc
 chsh -s $(which zsh)
 
 # Create a symlink between functions
