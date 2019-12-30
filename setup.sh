@@ -10,15 +10,13 @@ sudo snap install postman               #   api development
 sudo snap install atom --classic        #   web development -- free edition if you don't have a phpstorm license
 sudo snap install spotify               #   spotify music
 
-# Clone the Mojave Dark Theme
+# Download hyper.js Terminal
+curl -L https://releases.hyper.is/download/deb --output ~/Downloads/Hyper.deb
+
+# Clone the Mojave Dark Theme -- Requires github account
 # mkdir ~/.themes
 # git clone git@github.com:vinceliuice/Mojave-gtk-theme.git ~/Themes/Mojave-Dark
 # cp ~/Themes/Mojave-Dark/src ~/.themes/Mojave-Dark
-
-# Add Docker Group
-sudo addgroup —system docker
-sudo adduser $USER docker
-newgrp docker
 
 # Install Docker
 sudo apt install docker -y
@@ -34,3 +32,6 @@ chsh -s $(which zsh)
 
 # Create a symlink between functions
 ln -s ~/ubuntu-dev-setup/functions.zsh ~/.oh-my-zsh/custom/functions.zsh
+
+# Logout the user so their shell is set to ZSH
+gnome-session-quit --no-prompt
