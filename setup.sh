@@ -15,7 +15,7 @@ if [ "$INSTALL_APPS" = true ]; then
 
   # Download hyper.js Terminal and Install
   curl -L https://releases.hyper.is/download/deb --output ~/Downloads/Hyper.deb
-  sudo apt install ~/Downloads/Hyper.deb
+  sudo apt install -y ~/Downloads/Hyper.deb
 fi
 
 GITHUB_USER=$2
