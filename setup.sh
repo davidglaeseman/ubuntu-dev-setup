@@ -49,7 +49,7 @@ if [ "$yesno" = 'yes' ]; then
   ./install.sh
 fi
 
-echo "Would you like to install""\033[1;34m Oh My ZSH?\033[0m" "\033[1;33m yes/no \033[0m"
+echo "\n Would you like to install""\033[1;34m Oh My ZSH?\033[0m" "\033[1;33m yes/no \033[0m"
 read yesno
 if [ "$yesno" = 'yes' ]; then
   echo "\033[1;32mInstalling Oh My ZSH\033[0m"...
