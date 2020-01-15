@@ -4,6 +4,7 @@
 sudo apt update
 sudo apt upgrade -y
 sudo apt install curl git zsh vim gnome-shell gnome-tweak-tool unity-tweak-tool snapd -y
+sudo apt autoremove
 
 echo -e "\nWould you like to install""\e[34m PHP Storm, Bitwarden, Postman, Atom, Hyper.js & Spotify?\e[0m" "\e[33m Yes/No \e[0m"
 read yesno
@@ -28,6 +29,7 @@ read yesno
 if [ "$yesno" = 'yes' ]; then
   echo -e "\e[32mInstalling Docker & Devilbox\e[0m""..."
 
+  set +e
   # Install Docker
   sudo apt install docker -y
   sudo apt install docker-compose -y
@@ -39,9 +41,11 @@ if [ "$yesno" = 'yes' ]; then
   newgrp docker
   sudo setfacl -m user:$USER:rw /var/run/docker.sock
 
+
   # Clone Devilbox & copy base env
   git clone https://github.com/cytopia/devilbox ~/Websites
   cp ~/ubuntu-dev-setup/.env ~/Websites/.env
+  set -e
 fi
 
 
