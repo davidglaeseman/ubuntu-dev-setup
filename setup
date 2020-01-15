@@ -7,8 +7,8 @@ sudo apt install curl git zsh vim gnome-shell gnome-tweak-tool unity-tweak-tool 
 sudo apt autoremove -y
 
 echo -e "\nWould you like to install""\e[34m PHP Storm, Bitwarden, Postman, Atom, Hyper.js & Spotify?\e[0m" "\e[33m Yes/No \e[0m"
-read yesno
-if [ "$yesno" = 'yes' ]; then
+read yesnoPrograms
+if [ "$yesnoPrograms" = 'yes' ]; then
   echo -e "\e[32mInstalling Programs\e[0m""..."
 
   # Install Default Applications
@@ -70,7 +70,9 @@ if [ "$yesno" = 'yes' ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
   # Fix % bug in hyper.js after Oh My ZSH Install
-  echo 'unsetopt PROMPT_SP' >> ~/.zshrc
+  if [ "$yesnoPrograms" = 'yes' ]; then
+    echo 'unsetopt PROMPT_SP' >> ~/.zshrc
+  fi
   chsh -s $(which zsh)
   echo -e "\e[34mLog Out User To Reset Shell?\e[0m" "\e[33m Yes/No \e[0m"
   read yesno
