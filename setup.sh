@@ -43,8 +43,10 @@ if [ "$yesno" = 'yes' ]; then
   echo "Downloading github repo...."
 
   mkdir ~/.themes
+  mkdir ~/Themes
   git clone https://github.com/vinceliuice/Mojave-gtk-theme.git ~/Themes/Mojave-Dark
-  cp ~/Themes/Mojave-Dark/src ~/.themes/Mojave-Dark
+  cd ~/Themes/Mojave-Dark
+  ./install.sh
 fi
 
 echo "Would you like to install""\033[1;34m Oh My ZSH?\033[0m" "\033[1;33m yes/no \033[0m"
