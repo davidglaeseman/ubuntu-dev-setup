@@ -8,7 +8,7 @@ sudo apt install curl git zsh vim gnome-shell gnome-tweak-tool unity-tweak-tool 
 echo -e "\nWould you like to install""\e[34m PHP Storm, Bitwarden, Postman, Atom & Spotify?\e[0m" "\e[33m Yes/No \e[0m"
 read yesno
 if [ "$yesno" = 'yes' ]; then
-  echo -e "\e[32m Installing Programs \e[0m""..."
+  echo -e "\e[32mInstalling Programs\e[0m""..."
 
   # Install Default Applications
   sudo snap install phpstorm --classic    #   web development
@@ -26,11 +26,18 @@ fi
 echo -e "\nWould you like to install" "\e[34m Docker & Devilbox? \e[0m" "\e[33m Yes/No \e[0m"
 read yesno
 if [ "$yesno" = 'yes' ]; then
-  echo -e "\e[32m Installing Docker & Devilbox \e[0m""..."
+  echo -e "\e[32mInstalling Docker & Devilbox\e[0m""..."
 
   # Install Docker
   sudo apt install docker -y
   sudo apt install docker-compose -y
+
+  # Setup docker so it doesn't have to run as rootie mctootie
+  sudo groupadd docker
+  sudo gpasswd -aG docker $USER
+  sudo usermod -aG docker $USER
+  newgrp docker
+  sudo setfacl -m user:$USER:rw /var/run/docker.sock
 
   # Clone Devilbox & copy base env
   git clone https://github.com/cytopia/devilbox ~/Websites
@@ -41,7 +48,7 @@ fi
 echo -e "\nWould you like to install" "\e[34m OSX Theme? \e[0m" "\e[33m Yes/No \e[0m"
 read yesno
 if [ "$yesno" = 'yes' ]; then
-  echo -e "\e[32m Downloading Repo \e[0m""..."
+  echo -e "\e[32mDownloading Repo\e[0m""..."
 
   mkdir ~/.themes
   mkdir ~/Themes
@@ -54,7 +61,7 @@ fi
 echo -e "\nWould you like to install" "\e[34m Oh My ZSH? \e[0m" "\e[33m Yes/No \e[0m"
 read yesno
 if [ "$yesno" = 'yes' ]; then
-  echo -e "\e[32m Installing Oh My ZSH \e[0m""..."
+  echo -e "\e[32mInstalling Oh My ZSH\e[0m""..."
 
   # Install OH My ZSH
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
@@ -62,10 +69,10 @@ if [ "$yesno" = 'yes' ]; then
   # Fix % bug in hyper.js after Oh My ZSH Install
   echo 'unsetopt PROMPT_SP' >> ~/.zshrc
   chsh -s $(which zsh)
-  echo -e "\e[34m Log Out User To Reset Shell? \e[0m" "\e[33m Yes/No \e[0m"
+  echo -e "\e[34mLog Out User To Reset Shell?\e[0m" "\e[33m Yes/No \e[0m"
   read yesno
   if [ "$yesno" = 'yes' ]; then
-    echo -e "\e[32m Logging Out \e[0m""..."
+    echo -e "\e[32mLogging Out\e[0m""..."
     # Logout the user so their shell is set to ZSH
     gnome-session-quit --no-prompt
   fi
