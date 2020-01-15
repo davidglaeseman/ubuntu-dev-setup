@@ -29,17 +29,18 @@ read yesno
 if [ "$yesno" = 'yes' ]; then
   echo -e "\e[32mInstalling Docker & Devilbox\e[0m""..."
 
-  set +e
+  set -u
+  set -e
   # Install Docker
   sudo apt install docker -y
   sudo apt install docker-compose -y
 
   # Setup docker so it doesn't have to run as rootie mctootie
-  #sudo groupadd docker
-  sudo gpasswd -a $USER docker
-  sudo usermod -aG docker $USER
-  newgrp docker
-  sudo setfacl -m user:$USER:rw /var/run/docker.sock
+  sudo groupadd docker || true
+  sudo gpasswd -a $USER docker || true
+  sudo usermod -aG docker $USER || true
+  newgrp docker || true
+  sudo setfacl -m user:$USER:rw /var/run/docker.sock || true
 
 
   # Clone Devilbox & copy base env
