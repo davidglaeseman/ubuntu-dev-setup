@@ -4,7 +4,7 @@
 sudo apt update
 sudo apt upgrade -y
 sudo apt install curl git zsh vim gnome-shell gnome-tweak-tool unity-tweak-tool snapd -y
-sudo apt autoremove
+sudo apt autoremove -y
 
 echo -e "\nWould you like to install""\e[34m PHP Storm, Bitwarden, Postman, Atom, Hyper.js & Spotify?\e[0m" "\e[33m Yes/No \e[0m"
 read yesno
@@ -35,7 +35,7 @@ if [ "$yesno" = 'yes' ]; then
   sudo apt install docker-compose -y
 
   # Setup docker so it doesn't have to run as rootie mctootie
-  sudo groupadd docker
+  #sudo groupadd docker
   sudo gpasswd -a $USER docker
   sudo usermod -aG docker $USER
   newgrp docker
