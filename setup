@@ -29,8 +29,7 @@ read yesno
 if [ "$yesno" = 'yes' ]; then
   echo -e "\e[32mInstalling Docker & Devilbox\e[0m""..."
 
-  set -u
-  set -e
+
   # Install Docker
   sudo apt install docker -y
   sudo apt install docker-compose -y
@@ -39,14 +38,13 @@ if [ "$yesno" = 'yes' ]; then
   sudo groupadd docker || true
   sudo gpasswd -a $USER docker || true
   sudo usermod -aG docker $USER || true
-  newgrp docker || true
+  #newgrp docker || true
   sudo setfacl -m user:$USER:rw /var/run/docker.sock || true
 
 
   # Clone Devilbox & copy base env
   git clone https://github.com/cytopia/devilbox ~/Websites
   cp ~/ubuntu-dev-setup/.env ~/Websites/.env
-  set -e
 fi
 
 
