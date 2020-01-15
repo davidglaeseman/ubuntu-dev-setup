@@ -5,7 +5,9 @@ sudo apt update
 sudo apt upgrade -y
 sudo apt install curl git zsh vim gnome-shell gnome-tweak-tool unity-tweak-tool snapd -y
 
-echo "Would you like to install""\033[1;34m PHP Storm, Bitwarden, Postman, Atom & Spotify?\033[0m" "\033[1;33m yes/no \033[0m"
+echo -e "\e[31mHello World\e[0m"
+
+echo -e "Would you like to install""\e[31m PHP Storm, Bitwarden, Postman, Atom & Spotify?\e[0m" "\e[31m yes/no \e[0m"
 read yesno
 if [ "$yesno" = 'yes' ]; then
   echo "\033[1;32mInstalling Programs\033[0m"...
