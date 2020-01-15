@@ -5,10 +5,10 @@ sudo apt update
 sudo apt upgrade -y
 sudo apt install curl git zsh vim gnome-shell gnome-tweak-tool unity-tweak-tool snapd -y
 
-echo -e "\nWould you like to install""\e[34m PHP Storm, Bitwarden, Postman, Atom & Spotify?\e[0m" "\e[33m yes/no \e[0m"
+echo -e "\nWould you like to install""\e[34m PHP Storm, Bitwarden, Postman, Atom & Spotify?\e[0m" "\e[33m Yes/No \e[0m"
 read yesno
 if [ "$yesno" = 'yes' ]; then
-  echo "\033[1;32mInstalling Programs\033[0m"...
+  echo -e "\e[32m Installing Programs \e[0m""..."
 
   # Install Default Applications
   sudo snap install phpstorm --classic    #   web development
@@ -23,10 +23,10 @@ if [ "$yesno" = 'yes' ]; then
   rm ~/Downloads/Hyper.deb
 fi
 
-echo "Would you like to install""\033[1;34m Docker & Devilbox?\033[0m" "\033[1;33m yes/no \033[0m"
+echo -e "\nWould you like to install" "\e[34m Docker & Devilbox? \e[0m" "\e[33m Yes/No \e[0m"
 read yesno
 if [ "$yesno" = 'yes' ]; then
-  echo "\033[1;32mInstalling Docker & Devilbox\033[0m"...
+  echo -e "\e[32m Installing Docker & Devilbox \e[0m""..."
 
   # Install Docker
   sudo apt install docker -y
@@ -37,10 +37,11 @@ if [ "$yesno" = 'yes' ]; then
   cp ~/ubuntu-dev-setup/.env ~/Websites/.env
 fi
 
-echo "Would you like to install""\033[1;34m OSX Theme?\033[0m" "\033[1;33m yes/no \033[0m"
+
+echo -e "\nWould you like to install" "\e[34m OSX Theme? \e[0m" "\e[33m Yes/No \e[0m"
 read yesno
 if [ "$yesno" = 'yes' ]; then
-  echo "Downloading github repo...."
+  echo -e "\e[32m Downloading Repo \e[0m""..."
 
   mkdir ~/.themes
   mkdir ~/Themes
@@ -49,10 +50,11 @@ if [ "$yesno" = 'yes' ]; then
   ./install.sh
 fi
 
-echo "\n Would you like to install""\033[1;34m Oh My ZSH?\033[0m" "\033[1;33m yes/no \033[0m"
+
+echo -e "\nWould you like to install" "\e[34m Oh My ZSH? \e[0m" "\e[33m Yes/No \e[0m"
 read yesno
 if [ "$yesno" = 'yes' ]; then
-  echo "\033[1;32mInstalling Oh My ZSH\033[0m"...
+  echo -e "\e[32m Installing Oh My ZSH \e[0m""..."
 
   # Install OH My ZSH
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
@@ -60,10 +62,10 @@ if [ "$yesno" = 'yes' ]; then
   # Fix % bug in hyper.js after Oh My ZSH Install
   echo 'unsetopt PROMPT_SP' >> ~/.zshrc
   chsh -s $(which zsh)
-  echo "\033[1;31mLog Out User To Reset Shell?\033[0m" "\033[1;33m yes/no \033[0m"
+  echo -e "\e[34m Log Out User To Reset Shell? \e[0m" "\e[33m Yes/No \e[0m"
   read yesno
   if [ "$yesno" = 'yes' ]; then
-    echo "LOGGING OUT"
+    echo -e "\e[32m Logging Out \e[0m""..."
     # Logout the user so their shell is set to ZSH
     gnome-session-quit --no-prompt
   fi
