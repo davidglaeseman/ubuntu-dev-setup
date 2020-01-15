@@ -5,7 +5,7 @@ sudo apt update
 sudo apt upgrade -y
 sudo apt install curl git zsh vim gnome-shell gnome-tweak-tool unity-tweak-tool snapd -y
 
-echo -e "\nWould you like to install""\e[34m PHP Storm, Bitwarden, Postman, Atom & Spotify?\e[0m" "\e[33m Yes/No \e[0m"
+echo -e "\nWould you like to install""\e[34m PHP Storm, Bitwarden, Postman, Atom, Hyper.js & Spotify?\e[0m" "\e[33m Yes/No \e[0m"
 read yesno
 if [ "$yesno" = 'yes' ]; then
   echo -e "\e[32mInstalling Programs\e[0m""..."
@@ -34,7 +34,7 @@ if [ "$yesno" = 'yes' ]; then
 
   # Setup docker so it doesn't have to run as rootie mctootie
   sudo groupadd docker
-  sudo gpasswd -aG docker $USER
+  sudo gpasswd -a $USER docker
   sudo usermod -aG docker $USER
   newgrp docker
   sudo setfacl -m user:$USER:rw /var/run/docker.sock
