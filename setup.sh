@@ -1,11 +1,15 @@
 #!/bin/bash
+
+# Update & Install
 sudo apt update
 sudo apt upgrade -y
 sudo apt install curl git zsh vim gnome-shell gnome-tweak-tool unity-tweak-tool snapd -y
 
-#!/bin/bash
-INSTALL_APPS=$1
-if [ "$INSTALL_APPS" = true ]; then
+echo "Would you like to install""\033[1;34m PHP Storm, Bitwarden, Postman, Atom & Spotify?\033[0m" "\033[1;33m yes/no \033[0m"
+read yesno
+if [ "$yesno" = 'yes' ]; then
+  echo "\033[1;32mInstalling Programs\033[0m"...
+
   # Install Default Applications
   sudo snap install phpstorm --classic    #   web development
   sudo snap install bitwarden             #   password manager
@@ -19,31 +23,46 @@ if [ "$INSTALL_APPS" = true ]; then
   rm ~/Downloads/Hyper.deb
 fi
 
-GITHUB_USER=$2
-if [ "$GITHUB_USER" = true ]; then
-  # Clone the Mojave Dark Theme -- Requires github account
+echo "Would you like to install""\033[1;34m Docker & Devilbox?\033[0m" "\033[1;33m yes/no \033[0m"
+read yesno
+if [ "$yesno" = 'yes' ]; then
+  echo "\033[1;32mInstalling Docker & Devilbox\033[0m"...
+
+  # Install Docker
+  sudo apt install docker -y
+  sudo apt install docker-compose -y
+
+  # Clone Devilbox & copy base env
+  git clone https://github.com/cytopia/devilbox ~/Websites
+  cp ~/ubuntu-dev-setup/.env ~/Websites/.env
+fi
+
+echo "Would you like to install""\033[1;34m OSX Theme?\033[0m" "\033[1;33m yes/no \033[0m"
+read yesno
+if [ "$yesno" = 'yes' ]; then
+  echo "Downloading github repo...."
+
   mkdir ~/.themes
-  git clone git@github.com:vinceliuice/Mojave-gtk-theme.git ~/Themes/Mojave-Dark
+  git clone https://github.com/vinceliuice/Mojave-gtk-theme.git ~/Themes/Mojave-Dark
   cp ~/Themes/Mojave-Dark/src ~/.themes/Mojave-Dark
 fi
 
-# Install Docker
-sudo apt install docker -y
-sudo apt install docker-compose -y
+echo "Would you like to install""\033[1;34m Oh My ZSH?\033[0m" "\033[1;33m yes/no \033[0m"
+read yesno
+if [ "$yesno" = 'yes' ]; then
+  echo "\033[1;32mInstalling Oh My ZSH\033[0m"...
 
-# Clone Devilbox & copy base env
-git clone https://github.com/cytopia/devilbox ~/Websites
-cp ~/ubuntu-dev-setup/.env ~/Websites/.env
+  # Install OH My ZSH
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
-# Install OH My ZSH
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-
-# Fix % bug in hyper.js after Oh My ZSH Install
-echo 'unsetopt PROMPT_SP' >> ~/.zshrc
-chsh -s $(which zsh)
-
-# Create a symlink between functions
-ln -s ~/ubuntu-dev-setup/functions.zsh ~/.oh-my-zsh/custom/functions.zsh
-
-# Logout the user so their shell is set to ZSH
-gnome-session-quit --no-prompt
+  # Fix % bug in hyper.js after Oh My ZSH Install
+  echo 'unsetopt PROMPT_SP' >> ~/.zshrc
+  chsh -s $(which zsh)
+  echo "\033[1;31mLog Out User To Reset Shell?\033[0m" "\033[1;33m yes/no \033[0m"
+  read yesno
+  if [ "$yesno" = 'yes' ]; then
+    echo "LOGGING OUT"
+    # Logout the user so their shell is set to ZSH
+    gnome-session-quit --no-prompt
+  fi
+fi
