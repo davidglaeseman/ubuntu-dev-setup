@@ -1,3 +1,5 @@
+# ZSH Functions / Aliases for commands
+
 # SSH into a server via URL instead of IP Address
 function pingSSH(){
   hostname=$1

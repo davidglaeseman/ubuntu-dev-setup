@@ -44,7 +44,7 @@ if [ "$yesno" = 'yes' ]; then
 
   # Clone Devilbox & copy base env
   git clone https://github.com/cytopia/devilbox ~/Websites
-  cp ~/ubuntu-dev-setup/.env ~/Websites/.env
+  cp ~/Websites/env-example ~/Websites/.env
 fi
 
 

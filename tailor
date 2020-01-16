@@ -1,4 +1,5 @@
 #!/bin/bash
+# Devilbox Log Tailing for real-time debugging
 clear
 truncate -s 0 /var/log/php/php*
 tail -f /var/log/php/php*

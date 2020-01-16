@@ -1,6 +1,10 @@
 # Ubuntu Development Setup
 Bash file to setup and configure ubuntu for web development with docker
 
+````
+./setup
+````
+
 ### Steps
 * Update and Upgrade
 * Install Base Programs:
