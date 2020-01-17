@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo -e "\n Would you like to update/upgrade your system? ""\e[34m It's Recomended \e[0m" "\e[33m Yes/No \e[0m"
+echo -e "\n Would you like to update/upgrade your system? ""\e[45m It's Recomended \e[0m" "\e[33m Yes/No \e[0m"
 read yesno
 if [ "$yesno" = 'yes' ]; then
   echo -e "\e[32m Updating and Upgrading \e[0m""..."
