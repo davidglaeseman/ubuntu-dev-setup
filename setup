@@ -47,6 +47,13 @@ if [ "$yesno" = 'yes' ]; then
   cp ~/Websites/env-example ~/Websites/.env
 fi
 
+echo -e "\nWould you like to install" "\e[34m Node.js? \e[0m" "\e[33m Yes/No \e[0m"
+read yesno
+if [ "$yesno" = 'yes' ]; then
+  echo -e "\e[32mInstalling Node.js\e[0m""..."
+  curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
+  sudo apt install -y nodejs
+fi
 
 echo -e "\nWould you like to install" "\e[34m OSX Theme? \e[0m" "\e[33m Yes/No \e[0m"
 read yesno
