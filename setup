@@ -1,10 +1,22 @@
 #!/bin/bash
 
-# Update & Install
-sudo apt update
-sudo apt upgrade -y
-sudo apt install curl git zsh vim gnome-shell gnome-tweak-tool unity-tweak-tool snapd -y
-sudo apt autoremove -y
+echo -e "\n Would you like to update/upgrade your system? ""\e[34m It's Recomended \e[0m" "\e[33m Yes/No \e[0m"
+read yesnoPrograms
+if [ "$yesnoPrograms" = 'yes' ]; then
+  echo -e "\e[32m Updating and Upgrading \e[0m""..."
+  # Update & Install
+  sudo apt update
+  sudo apt upgrade -y
+fi
+
+echo -e "\n Would you like install required System Apps? ""\e[34m curl, git, zsh, vim, tweaks & snapd \e[0m" "\e[33m Yes/No \e[0m"
+read yesnoPrograms
+if [ "$yesnoPrograms" = 'yes' ]; then
+  echo -e "\e[32m Updating and Upgrading \e[0m""..."
+  # Update & Install
+  sudo apt install curl git zsh vim gnome-shell gnome-tweak-tool unity-tweak-tool snapd -y
+  sudo apt autoremove -y
+fi
 
 echo -e "\nWould you like to install""\e[34m PHP Storm, Bitwarden, Postman, Atom, Hyper.js & Spotify?\e[0m" "\e[33m Yes/No \e[0m"
 read yesnoPrograms
